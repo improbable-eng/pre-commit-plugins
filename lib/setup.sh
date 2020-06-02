@@ -78,7 +78,8 @@ _setup_env() {
   export REPO_ROOT
   export SECRETS_DIR="${REPO_ROOT}/.secrets"
 
-  if ! source lib/log.sh; then
+  # shellcheck source=log.sh
+  if ! source "lib/log.sh"; then
     echo >&2 -e "setup.sh:\tFailed to source logging library"
     return 1
   fi
