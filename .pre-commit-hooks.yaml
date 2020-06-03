@@ -1,0 +1,135 @@
+---
+- id: check-proto
+  name: check-proto
+  description: Run protolint against proto files, https://github.com/yoheimuta/protolint
+  entry: script/check-proto-with-protolint.sh
+  language: script
+  types:
+    - file
+    - text
+  files: \.proto$
+
+- id: detect-tool-drift
+  name: detect-tool-drift
+  description: Detect whether the environment (tools, versions of those) matches what is expected.
+  entry: script/detect-tool-drift.sh
+  language: script
+  # The most likely reason for drift to occur is changes to the steps file which contains the docker images in which CI runs, which is what we're trying to detect drift against.
+  files: \.buildkite\.*steps\.yaml|tool-drift\.goss\.yaml
+
+- id: dockerfile
+  name: dockerfile
+  description: Lints Dockerfiles with hadolint
+  entry: script/check-dockerfiles-with-hadolint.sh
+  language: script
+  types:
+    - file
+    - text
+  # no start/end ^$ because we may do different platforms' docker containers so the naming can vary.
+  files: Dockerfile
+
+- id: go-format
+  name: go-format
+  description: Format golang source code
+  entry: script/go-format.sh
+  language: script
+  types:
+    - file
+    - text
+  files: \.go$
+
+- id: go-generate
+  name: go-generate
+  description: Make sure go generate results in no diffs
+  entry: script/go-generate.sh
+  language: script
+  types:
+    - file
+    - text
+  files: \.go$
+
+- id: go-mod-tidy
+  name: go-mod-tidy
+  description: Make go.mod/sum files be tidy of dependencies
+  entry: script/go-mod-tidy.sh
+  language: script
+  types:
+    - file
+    - text
+  files: go\.mod|sum$
+
+# We repo-integrate instead of using https://github.com/golangci/golangci-lint/blob/master/.pre-commit-hooks.yaml
+# because otherwise we need our pre-commit container to include build tools to support using go get. This would
+# significantly increase the size/complexity/bloat of our pre-commit container.
+- id: golangci-lint
+  name: golangci-lint
+  description: Run golangci-lint across our golang
+  entry: script/golangci-lint.sh
+  language: script
+  types:
+    - file
+    - text
+  pass_filenames: false
+  files: \.go$
+
+- id: opa-fmt
+  name: opa/rego format
+  description: Format Open Policy Agent rego policy files
+  entry: script/opa-fmt.sh
+  language: script
+  types:
+    - file
+    - text
+  files: \.rego$
+
+- id: opa-test
+  name: opa/rego tests
+  description: Run Open Policy Agent rego tests
+  entry: script/opa-test.sh
+  language: script
+  types:
+    - file
+    - text
+  pass_filenames: false  # because it's really fast, just test the whole tree.
+  files: \.rego$
+  args:
+    - policy
+    - --explain=full
+    - --show-failure-line
+
+# We use the prometheus operator, so unlikely to use this until/unless we extract the configuration from the operator to check it.
+- id: prometheus_check_config
+  name: prometheus_check_config
+  description: Validates prometheus configuration
+  entry: script/check-prometheus-config.sh
+  language: script
+  types:
+    - file
+    - text
+    - yaml
+  # We exclude these files as they are Kubernetes YAMLs not Prometheus rules.
+  exclude: '[config\/k8s\/prometheus\/base\/prometheus.yaml|config\/k8s\/prometheus\/overlays\/local\/prometheus.yaml]'
+  files: prometheus.ya?ml$
+
+- id: prometheus_check_rules
+  name: Check prometheus rules
+  description: Validates prometheus rules
+  entry: script/check-prometheus-rules.sh
+  language: script
+  types:
+    - file
+    - text
+    - yaml
+  files: \.rules?\.ya?ml$
+
+- id: prometheus_test_rules
+  name: prometheus_test_rules
+  description: Runs unit-tests against rules
+  entry: script/test-prometheus-rules.sh
+  language: script
+  types:
+    - file
+    - text
+    - yaml
+  files: \.rules?\.test\.ya?ml$
+

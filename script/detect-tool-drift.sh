@@ -2,10 +2,10 @@
 # shellcheck source=../lib/setup.sh
 source "$(dirname "${BASH_SOURCE[0]}")/../lib/setup.sh" || exit "${EXIT_FAILED_TO_SOURCE}"
 
+goss_file="${1:?"Must supply a tool-drift.goss.yaml as 1st argument."}"
+
 if is_person; then
   command -v goss >"/dev/null" || log_fatal "goss not found on PATH. Install it: \`imp-tool subscribe --tools goss\`"
-
-  goss_file="workflow/pre-commit/tool-drift.goss.yaml"
 
   log_info "Checking your environment to see whether tools are installed at the versions we expect them to be..."
   log_info "If your environment has drifted, you will need to fix that by installing or linking the required versions of tools."
