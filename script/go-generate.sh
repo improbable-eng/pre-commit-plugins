@@ -7,8 +7,6 @@ set +o errexit
 # skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
 
-ensure_go_tool_dependency "mockery" "github.com/vektra/mockery/cmd/mockery"
-
 log_info "Checking 'go:generate' directives..."
 go generate ./...
 
