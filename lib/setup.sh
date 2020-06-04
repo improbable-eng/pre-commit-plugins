@@ -70,16 +70,12 @@ _setup_env() {
     echo >&2 -e "setup.sh:\tFailed to determine directory containing executed script."
     return 1
   fi
-  if ! cd "$(dirname "${BASH_SOURCE[0]}")/.."; then
-    echo >&2 -e "setup.sh:\tFailed to cd to repository root"
-    return 1
-  fi
-  REPO_ROOT="$(pwd)"
+  REPO_ROOT="$(dirname "${BASH_SOURCE[0]}")/.."
   export REPO_ROOT
   export SECRETS_DIR="${REPO_ROOT}/.secrets"
 
   # shellcheck source=log.sh
-  if ! source "lib/log.sh"; then
+  if ! source "${REPO_ROOT}/lib/log.sh"; then
     echo >&2 -e "setup.sh:\tFailed to source logging library"
     return 1
   fi
