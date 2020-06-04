@@ -25,7 +25,6 @@ repos:
           - --sequence=4
           - --offset=2
           - --width=1200    # match .yamllint.yaml; we don't care about line-length.
-        exclude: .+/helm/templates/.+
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.4.0
@@ -50,8 +49,6 @@ repos:
     rev: v0.0.16
     hooks:
       - id: forbid-binary
-        # Exclude png and snapshots forbid, we can check these in.
-        exclude: ^.+\.(png|snapshot)$
       # See checks in shellcheck wiki: https://github.com/koalaman/shellcheck/wiki/
       - id: shellcheck
       - id: shfmt
