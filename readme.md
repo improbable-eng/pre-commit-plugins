@@ -73,7 +73,7 @@ See also the `scripts` directory of this repository for simple examples.
 
 ##### How to: add an in-repo plugin
 
-See samples inside this repository - `.pre-commit-config.yaml` `repos["local"]` and `workflow/pre-commit/*.sh`.
+See <https://pre-commit.com/#repository-local-hooks> - these are useful to iterate on something before offering it here.
 
 For extra credit, make them emit TAP/junit/checkstyle to be scraped during CI to the results annotation.
 
