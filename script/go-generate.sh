@@ -6,10 +6,4 @@ set +o errexit
 
 # skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
-
-log_info "Checking 'go:generate' directives..."
-go generate ./...
-
-if ! git diff --exit-code -- "**/mocks"; then
-  log_fatal "Diffs found. To fix, run 'go generate ./...' and commit."
-fi
+exec go generate ./...

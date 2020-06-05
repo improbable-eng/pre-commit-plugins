@@ -6,4 +6,4 @@ set +o errexit
 
 # skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
-golangci-lint run "${@}"
+exec golangci-lint run "${@}"

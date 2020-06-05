@@ -4,5 +4,4 @@ source "$(dirname "${BASH_SOURCE[0]}")/../lib/setup.sh" || exit "${EXIT_FAILED_T
 
 # skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
-
-opa test "${@}"
+exec opa test "${@}"
