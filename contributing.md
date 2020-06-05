@@ -9,3 +9,7 @@ Standard github pull-request flow.
     * Offering a change here is making the assumption you are, yourself, a user of `pre-commit` and have it installed and wired up so you can run it locally.
 1. Open a pull request and ask for review.
 1. We'll process as fast as we're able.
+
+See also [how to: release].
+
+[how to: release]: how-to-release.md
