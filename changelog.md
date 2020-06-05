@@ -1,12 +1,12 @@
 # Changelog
 
-## 0.1.2
+## 0.1.3
 
 ### Changed
 
 Most plugins support a list of files to process, so swap to that and use `exec`.
 
-## 0.1.1
+## 0.1.2
 
 ### Fixed
 
