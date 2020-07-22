@@ -47,6 +47,12 @@ Use the `--no-verify` flag of the `git push` (or `commit`) command to skip enfor
 
 See [pre-commit's docs](https://pre-commit.com/#temporarily-disabling-hooks) for more information.
 
+#### How to: run pre-commit checks without committing
+
+Run `pre-commit run` to execute all the pre-commit hooks against the staged files. Add the `--all-files` option to run it also on not-staged files (useful for example if you have previously committed/pushed with linting errors using the `--no-verify` option).
+
+See [pre-commit docs](https://pre-commit.com/#pre-commit-run) for more information.
+
 #### How to: update plugins
 
 See [upstream's `pre-commit autoupdate`] section.
