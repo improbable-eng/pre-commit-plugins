@@ -74,5 +74,3 @@ repos:
         files: ^.*/.*.cs$
         args:
           - ./samples/
-          - --folder
-
