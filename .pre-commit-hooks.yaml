@@ -110,7 +110,7 @@
     files: prometheus.ya?ml$
 
   - id: prometheus_check_rules
-    name: Check prometheus rules
+    name: prometheus_check_rules
     description: Validates prometheus rules
     entry: script/check-prometheus-rules.sh
     language: script
@@ -130,3 +130,16 @@
       - text
       - yaml
     files: \.rules?\.test\.ya?ml$
+
+  # Specify the project as an arg (or a folder with multiple projects using the --folder flag following the directory name)
+  # ie. in .pre-commit-config.yaml use args: [./path/to/dir/] or args: [./path/to/dir/, --folder]
+  - id: dotnet-format
+    name: dotnet-format
+    description: Check C# source code
+    entry: script/check-dotnet-format.sh
+    language: script
+    types:
+      - file
+      - text
+    pass_filenames: false
+    files: \.cs$

@@ -59,3 +59,20 @@ repos:
           - -w      # autofix in place
           - -d      # show diff
           - -i=2    # indent 2 spaces
+
+  # Example usage of dotnet-format: pre-commit run dotnet-format --all-files
+  - repo: local
+    hooks:
+      - id: dotnet-format
+        name: dotnet-format
+        entry: script/check-dotnet-format.sh
+        language: script
+        types:
+          - file
+          - text
+        pass_filenames: false
+        files: ^.*/.*.cs$
+        args:
+          - ./samples/
+          - --folder
+
