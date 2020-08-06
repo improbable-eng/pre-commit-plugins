@@ -8,10 +8,4 @@ set +o errexit
 # Skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
 
-if [ $# -eq 0 ]
-  then
-    echo "No args received"
-    exec dotnet-format --check . --folder
-  else
-    exec dotnet-format --check "${@}" --folder
-fi
+exec dotnet-format --check . --folder
