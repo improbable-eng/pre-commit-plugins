@@ -140,4 +140,4 @@
       - file
       - text
     pass_filenames: false
-    files: \.cs$
+    files: \.csproj$

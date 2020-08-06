@@ -8,4 +8,14 @@ set +o errexit
 # Skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
 
-exec dotnet-format --check . --folder
+if [ $# -eq 0 ]
+  then
+    # Run dotnet-format on entire repository
+    exec dotnet-format --check . --folder
+  else
+    # Run dotnet-format on the directories of any C# project files found
+    for PROJ in ${@}
+    do        
+        dotnet-format --check $(dirname $PROJ)
+    done
+fi
