@@ -36,6 +36,7 @@ repos:
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
+      - id: check-xml
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: forbid-new-submodules
@@ -62,6 +63,7 @@ repos:
 
   # Example usage of dotnet-format: pre-commit run dotnet-format --all-files
   - repo: https://github.com/improbable-eng/pre-commit-plugins/
+    rev: 0.1.3
     hooks:
       - id: dotnet-format
         name: dotnet-format
