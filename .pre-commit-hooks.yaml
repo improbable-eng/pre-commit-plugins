@@ -137,7 +137,5 @@
     entry: script/check-dotnet-format.sh
     language: script
     types:
-      - file
-      - text
+      - c#
     pass_filenames: false
-    files: \.csproj$
