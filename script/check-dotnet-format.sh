@@ -14,8 +14,8 @@ if [[ $# -eq 0 ]]
     exec dotnet-format --check . --folder
   else
     # Run dotnet-format on the directories of any C# project files found
-    for PROJ in "${@}"
+    for project in "${@}"
     do        
-        dotnet-format --check "$(dirname "${PROJ}")"
+        dotnet-format --check "$(dirname "${project}")"
     done
 fi
