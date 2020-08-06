@@ -61,7 +61,7 @@ repos:
           - -i=2    # indent 2 spaces
 
   # Example usage of dotnet-format: pre-commit run dotnet-format --all-files
-  - repo: local
+  - repo: https://github.com/improbable-eng/pre-commit-plugins/
     hooks:
       - id: dotnet-format
         name: dotnet-format
@@ -72,5 +72,3 @@ repos:
           - text
         pass_filenames: false
         files: ^.*/.*.cs$
-        args:
-          - ./samples/
