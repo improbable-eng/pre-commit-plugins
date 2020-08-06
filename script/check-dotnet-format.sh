@@ -8,7 +8,7 @@ set +o errexit
 # Skip bash stack-trace, otherwise our bash stack-traces clutter up the output.
 export SKIP_BASH_STACKTRACE=1
 
-if [ $# -eq 0 ]
+if [[ $# -eq 0 ]]
   then
     # Run dotnet-format on entire repository
     exec dotnet-format --check . --folder
