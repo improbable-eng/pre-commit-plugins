@@ -9,7 +9,7 @@ exclude: vendor|\.pb\.go
 
 repos:
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.20.0
+    rev: v1.24.2
     hooks:
       - id: yamllint
         args:
@@ -17,7 +17,7 @@ repos:
           - --strict
 
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-    rev: 0.0.10
+    rev: 0.0.11
     hooks:
       - id: yamlfmt
         args:
@@ -27,7 +27,7 @@ repos:
           - --width=1200    # match .yamllint.yaml; we don't care about line-length.
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.4.0
+    rev: v3.2.0
     hooks:
       - id: check-added-large-files
       - id: check-byte-order-marker
@@ -36,6 +36,7 @@ repos:
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
+      - id: check-xml
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: forbid-new-submodules
@@ -59,3 +60,12 @@ repos:
           - -w      # autofix in place
           - -d      # show diff
           - -i=2    # indent 2 spaces
+
+  # Example usage of dotnet-format: pre-commit run dotnet-format --all-files
+  # To restrict to only listed directory add: args: [ path/to/a.csproj, path/to/b.csproj ]
+  - repo: https://github.com/improbable-eng/pre-commit-plugins/
+    rev: 0.1.3
+    hooks:
+      - id: dotnet-format
+        args:
+          - samples/dotnet-hook-samples/Test.csproj

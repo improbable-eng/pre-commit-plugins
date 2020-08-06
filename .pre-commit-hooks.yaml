@@ -110,7 +110,7 @@
     files: prometheus.ya?ml$
 
   - id: prometheus_check_rules
-    name: Check prometheus rules
+    name: prometheus_check_rules
     description: Validates prometheus rules
     entry: script/check-prometheus-rules.sh
     language: script
@@ -130,3 +130,12 @@
       - text
       - yaml
     files: \.rules?\.test\.ya?ml$
+
+  - id: dotnet-format
+    name: dotnet-format
+    description: Check C# source code
+    entry: script/check-dotnet-format.sh
+    language: script
+    types:
+      - c#
+    pass_filenames: false
