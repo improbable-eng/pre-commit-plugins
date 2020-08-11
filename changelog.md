@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Feature
+
+Add plugin for C# formatting using `dotnet-format`.
+
 ## 0.1.3
 
 ### Changed
