@@ -11,11 +11,11 @@ export SKIP_BASH_STACKTRACE=1
 if [[ $# -eq 0 ]]
   then
     # Run dotnet-format on entire repository
-    exec dotnet-format --check . --folder
+    exec dotnet-format . --folder
   else
     # Run dotnet-format on the directories of any C# project files found
     for project in "${@}"
     do        
-        dotnet-format --check "$(dirname "${project}")"
+        dotnet-format "$(dirname "${project}")"
     done
 fi
