@@ -1,0 +1,11 @@
+---
+# team-eng-velocity owns everything here by default, but please add yourself 
+# for specific files like this if needed.
+#   "example_script.sh$":
+#     approvers:
+#       - team-eng-velocity
+
+filters:
+  "OWNERS$":
+    approvers:
+      - team-eng-velocity
