@@ -69,7 +69,7 @@
     types:
       - file
       - text
-    pass_filenames: false
+    pass_filenames: true
     files: \.go$
 
   - id: opa-fmt
