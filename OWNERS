@@ -1,4 +1,5 @@
 ---
 approvers:
-  - team-eng-velocity
-  - team-reliability-engineering
+  - team-db-eve
+  - team-db-pf
+  - team-db-sec-eng

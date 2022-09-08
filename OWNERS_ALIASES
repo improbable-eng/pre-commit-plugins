@@ -1,13 +1,15 @@
 ---
 aliases:
-  team-eng-velocity:
-    - DoomGerbil         # Sean Robertson
-    - filipVisko         # Filip Viskovic
-    - Helcaraxan         # Duco van Amstel
-    - PaulSonOfLars      # PaulSonOfLars
-  team-reliability-engineering:
-    - Christopher-Steel  # Christopher Steel
-    - filipVisko         # Filip Viskovic
-    - LeadTimeNull       # Andreas Valentin Pederson
-    - PaulSonOfLars      # PaulSonOfLars
-
+  team-db-eve:
+    - andrewkdouglas # Andrew Douglas
+    - femrtnz        # Felipe Martinez
+    - sgsollie       # Oliver Young
+    - tokwii         # Timothy Okwii
+    - ChocPanda      # Matt Searle
+    - samhine        # Sam Hine
+    - filipVisko     # Filip Višković
+    - elizabethking2 # Elizabeth King
+  team-db-pf:
+    - DoomGerbil     # Sean Robertson
+  team-db-sec-eng:
+    - ClarksonCJ     # Chris Clarkson
